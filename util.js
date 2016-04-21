@@ -1,7 +1,7 @@
-function extend(subContstructor, superContstructor) {
-	subContstructor.prototype = Object.create(superContstructor.prototype, {
+function extend(subConstructor, superConstructor) {
+	subConstructor.prototype = Object.create(superConstructor.prototype, {
 		constructor: {
-			value: subContstructor,
+			value: subConstructor,
 			enumerable: false,
 			writable: true,
 			configurable: true

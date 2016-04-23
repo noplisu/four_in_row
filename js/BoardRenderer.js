@@ -38,6 +38,11 @@ _p._drawBackground = function() {
 	ctx.fillStyle = "#f6f6b2";
 
 	ctx.beginPath();
+	ctx.moveTo(co, this._height);
+	ctx.bezierCurveTo(this._width + co*3, -co, -co*3, -co, this._width - co, this._height);
+	ctx.fill();
+
+	ctx.beginPath();
 	ctx.moveTo(co, 0);
 	ctx.bezierCurveTo(this._width + co*3, this._height + co, -co*3, this._height + co, this._width - co, 0);
 	ctx.fill();
@@ -58,7 +63,7 @@ _p._drawGrid = function() {
 	ctx.stroke();
 };
 
-_p._drawToken = function(cellX, cellY) {
+_p.drawToken = function(cellX, cellY) {
 	var ctx = this._ctx;
 	var cellSize = this._cellSize;
 	var tokenType = this._model.getPiece(cellX, cellY);
@@ -106,7 +111,7 @@ _p.repaint = function() {
 	this._drawGrid();
 	this._ctx.restore();
 
-	for(var i = 0; i < this_cols; i++) {
+	for(var i = 0; i < this._cols; i++) {
 		for(var j = 0; j < this._rows; j++) {
 			this.drawToken(i, j);
 		}

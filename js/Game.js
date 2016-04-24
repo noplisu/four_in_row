@@ -4,12 +4,12 @@ function Game(canvas) {
 	this._ctx = canvas.getContext("2d");
 	this._boardModel = new BoardModel();
 	this._boardRenderer = new BoardRenderer(this._ctx, this._boardModel);
-	this._handleResize();
+	this.handleResize();
 }
 
 _p = Game.prototype;
 
-_p._handleResize = function() {
+_p.handleResize = function() {
 	this._clearCanvas();
 	this._boardRect = this._getBoardRect();
 	this._boardRenderer.setSize(this._boardRect.x, this._boardRect.y, this._boardRect.cellSize);
